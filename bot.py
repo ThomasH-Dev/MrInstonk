@@ -5,7 +5,13 @@ class MyClient(discord.Client):
         print('Logged on as {0}!'.format(self.user))
 
     async def on_message(self, message):
-        print('Message from {0.author}: {0.content}'.format(message))
+        if message.author.id == self.user.id:
+            return
+        
+        if message.content.startswith('@hi'):
+            await message.author.send('hello')
+        #print('Message from {0.author}: {0.content}'.format(message))
+        
 
 client = MyClient()
 client.run('ODE0NjI3MzUyNDIzMzAxMTMx.YDgm1w.4V241uSspBjY9VsKzXLGyPhznB4')
