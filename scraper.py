@@ -13,14 +13,10 @@ ps5Stores = (ps5TrackerContent.find_all(id='data'))
 #BestBuy PS5 Inventory
 bbyPs5 = (ps5Soup.find(id='tr53043'))
 bbyPs5Inventory = (bbyPs5.find(class_='stockStatus').get_text())
-print('-----------------------------------------------------------')
-print('* BestBuy - PS5 Inventory:', bbyPs5Inventory)
 
 #BestBuy PS5 Digital Inventory
 bbyDigitalPs5 = (ps5Soup.find(id='tr53042'))
 bbyDigitalPs5Inventory = (bbyDigitalPs5.find(class_='stockStatus').get_text())
-print('* BestBuy - PS5 Digital Inventory:', bbyDigitalPs5Inventory)
-print('-----------------------------------------------------------')
 
 #############################################################################
 
@@ -36,22 +32,36 @@ xboxStores = (xboxTrackerContent.find_all(id='data'))
 #BestBuy Xbox Series X Inventory
 bbyXbox = (xboxSoup.find(id='tr53155'))
 bbyXboxInventory = (bbyXbox.find(class_='stockStatus').get_text())
-print('* BestBuy - Xbox Series X Inventory:', bbyXboxInventory)
 
 #############################################################################
 
 #Function For Stock Availability
-ps5Restock = 'PS5 Now Available!'
-ps5DigitalRestock = 'PS5 Digital Now Available!'
-xboxRestock = 'Xbox Series X Now Available!'
-
 ps5Unavailable = 'Out of Stock'
 ps5DigitalUnavailable = 'Out of Stock'
 xboxUnavailable = 'Out of Stock'
 
-#def ps5Availability(bbyPs5Inventory):
-#   if bbyPs5Inventory != ps5Unavailable: 
-#   return 
+def ps5Availability():
+    if bool(bbyPs5Inventory == ps5Unavailable):
+        print('BestBuy - PS5 Inventory: Out Of Stock...')
+    else:
+        print('BestBuy - PS5 Inventory: IN STOCK!!!')
 
-#print(ps5Availability())
-#print(ps5Inventory(bbyPs5Inventory))
+def ps5DigitalAvailability():
+    if bool(bbyDigitalPs5Inventory == ps5DigitalUnavailable):
+        print('BestBuy - PS5 Digital Inventory: Out Of Stock...')
+    else:
+        print('BestBuy - PS5 Digital Inventory: IN STOCK!!!')
+
+def xboxAvailability():
+    if bool(bbyXboxInventory == xboxUnavailable):
+        print('BestBuy - Xbox Series X Inventory: Out Of Stock...')
+    else:
+        print('BestBuy - Xbox Series X Inventory: IN STOCK!!!')
+
+print('***********************************************************')
+ps5Availability()
+ps5DigitalAvailability()
+print('-----------------------------------------------------------')
+xboxAvailability()
+print('***********************************************************')
+
