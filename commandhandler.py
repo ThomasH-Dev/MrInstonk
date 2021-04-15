@@ -24,3 +24,4 @@ class Handler():
         elif(splitMsg[0].lower() == "test"):
 
             print("test")
+
