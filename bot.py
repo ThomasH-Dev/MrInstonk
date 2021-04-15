@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 3e7823d7b30b3ff9971769250fca7f07e34d1611
 import discord
 import json
 from users import MyUsers
@@ -36,4 +41,8 @@ class MyClient(discord.Client):
 
 client = MyClient()
 client.run('ODE0NjI3MzUyNDIzMzAxMTMx.YDgm1w.4V241uSspBjY9VsKzXLGyPhznB4')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0ca0fc5fb3f7818863c240e4a95fc74b3850b628
+>>>>>>> 3e7823d7b30b3ff9971769250fca7f07e34d1611
