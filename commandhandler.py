@@ -32,3 +32,12 @@ class Handler():
 
             await channel.send(embed=embedVar)
 
+            channelx = self.bot.get_channel(832077275059060747)
+            
+            embedVarx = discord.Embed(title="XBOX SERIES X IN STOCK!!", description="<@&826577207555391559>", color=0x00CA22)
+            embedVarx.set_image(url = 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6428/6428324cv15d.jpg;maxHeight=640;maxWidth=550')
+            embedVarx.add_field(name="Link", value="https://www.bestbuy.com/site/microsoft-xbox-series-x-1tb-console-black/6428324.p?skuId=6428324", inline=False)
+            
+
+            await channelx.send(embed=embedVarx)
+
