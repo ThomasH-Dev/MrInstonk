@@ -43,20 +43,26 @@ xboxUnavailable = 'Out of Stock'
 def ps5Availability():
     if bool(bbyPs5Inventory == ps5Unavailable):
         print('BestBuy - PS5 Inventory: Out Of Stock...')
+        return False
     else:
         print('BestBuy - PS5 Inventory: IN STOCK!!!')
+        return True
 
 def ps5DigitalAvailability():
     if bool(bbyDigitalPs5Inventory == ps5DigitalUnavailable):
         print('BestBuy - PS5 Digital Inventory: Out Of Stock...')
+        return False
     else:
         print('BestBuy - PS5 Digital Inventory: IN STOCK!!!')
+        return True
 
 def xboxAvailability():
     if bool(bbyXboxInventory == xboxUnavailable):
         print('BestBuy - Xbox Series X Inventory: Out Of Stock...')
+        return False
     else:
         print('BestBuy - Xbox Series X Inventory: IN STOCK!!!')
+        return True
 
 print('***********************************************************')
 ps5Availability()

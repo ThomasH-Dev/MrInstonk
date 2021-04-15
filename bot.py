@@ -1,16 +1,24 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 3e7823d7b30b3ff9971769250fca7f07e34d1611
 import discord
 import json
 from users import MyUsers
 from commandhandler import Handler
+import scraper
+import asyncio
+import logging
+import threading
+import time
 
 class MyClient(discord.Client):
+
     async def on_ready(self):
         print('Logged on as {0}!'.format(self.user))
+
+        ##await self.stock()
+
+        x = threading.Thread(target=self.stock, args=())
+
+        x.start()
+
 
     async def on_message(self, message):
         if message.author.id == self.user.id:
@@ -20,29 +28,44 @@ class MyClient(discord.Client):
 
         await Handler.content(self, message)
 
-        #print(message.channel.id == 826572317844176913)
+    def stock(self):
 
-        #if message.channel.id != 826572317844176913:
-         #   return
-        
-        #if message.content.startswith('@add PS5'):
+        condition = True
 
-            #MyUsers.adduser(message)
+        while condition:
 
-            #role = discord.utils.get(message.guild.roles, name = "PS5")
+            if not scraper.ps5Availability():
 
-            #await message.author.add_roles(role)
+                
 
-            #await message.author.send('DM')
-            #print('Message from {0.author}: {0.content}'.format(message))
+                print('meme')
+
+            if not scraper.ps5DigitalAvailability():
+
+                
+
+                print('meme')
+
+            if not scraper.xboxAvailability():
+
+                
+
+                print('meme')   
+
+            time.sleep(10)
+    
+    async def psStock():
+
+        channel = client.get_channel(826572317844176913)
+        await channel.send('ps5')
+
+    async def xboxStock():
+
+        channel = client.get_channel(832077275059060747)
+        await channel.send('xbox')
 
 
-        
+
 
 client = MyClient()
 client.run('ODE0NjI3MzUyNDIzMzAxMTMx.YDgm1w.4V241uSspBjY9VsKzXLGyPhznB4')
-<<<<<<< HEAD
-
-=======
->>>>>>> 0ca0fc5fb3f7818863c240e4a95fc74b3850b628
->>>>>>> 3e7823d7b30b3ff9971769250fca7f07e34d1611
