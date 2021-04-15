@@ -18,7 +18,12 @@ class Handler():
             elif(splitMsg[1].lower() == "xbox"):
 
                 role = discord.utils.get(message.guild.roles, name = "Xbox Series X")
-
+            else:
+              channel = self.bot.get_channel(message.channel.id)
+              
+              await channel.send("We don't support that product/ you may have spelled it incorrectly")
+              
+          
             await message.author.add_roles(role)
 
         elif(splitMsg[0].lower() == "test"):
@@ -40,4 +45,8 @@ class Handler():
             
 
             await channelx.send(embed=embedVarx)
-
+        else:
+          channel = self.bot.get_channel(message.channel.id)
+              
+          await channel.send("We don't support that command: try using 'add' ")
+          
